@@ -53,6 +53,8 @@ export const AuthInput = styled.div`
   margin-top: 4rem;
 
   width: 50%;
+  display: flex;
+  flex-direction: column;
 
   svg {
     position: absolute;

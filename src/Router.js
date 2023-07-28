@@ -12,12 +12,13 @@ const AnimatedRoutes = () => {
   return (
     <LazyMotion features={domMax}>
       <AnimatePresence mode="wait">
-        <Navigate to="/login" replace />
+        {/* <Navigate to="/login" replace /> */}
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/choose-store" element={<ChooseStore />} />
           <Route path="/voucher" element={<Voucher />} />
           <Route path="/tickets" element={<Tickets />} />
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </AnimatePresence>
     </LazyMotion>

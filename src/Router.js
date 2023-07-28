@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AnimatePresence, LazyMotion, domMax } from "framer-motion";
 
 import GlobalProvider from "./contexts/global";
@@ -12,6 +12,7 @@ const AnimatedRoutes = () => {
   return (
     <LazyMotion features={domMax}>
       <AnimatePresence mode="wait">
+        <Navigate to="/login" replace />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/choose-store" element={<ChooseStore />} />

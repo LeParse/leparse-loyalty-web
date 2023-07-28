@@ -1,11 +1,12 @@
 import React from "react";
 
-import { Container, Logo } from "./styles";
-import LogoImg from "../../assets/images/admin-logo.png";
+import LogoImg from "../../assets/images/loyalty-logo-white.png";
 
-function Header() {
+import { Container, Logo } from "./styles";
+
+function Header(props) {
   return (
-    <Container>
+    <Container {...props}>
       <Logo src={LogoImg} alt="Leparse Loyalty Logo" />
     </Container>
   );

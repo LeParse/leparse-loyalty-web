@@ -51,9 +51,19 @@ body {
     rgba(17, 86, 112, 1) 69%,
     rgba(17, 42, 53, 1) 100%
   );
+  background: -moz-radial-gradient(
+    rgba(39, 82, 99, 1) 0%,
+    rgba(16, 96, 101, 1) 35%,
+    rgba(17, 86, 112, 1) 69%,
+    rgba(17, 42, 53, 1) 100%
+  );
 
   background-size: 200% 350%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
   animation: colorChange 25s ease infinite alternate;
+  overflow: hidden;
 }
 
 .layoutGrid {

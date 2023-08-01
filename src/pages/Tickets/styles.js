@@ -30,30 +30,6 @@ export const TicketHeader = styled.div`
   width: 100%;
 
   position: relative;
-
-  div {
-    position: absolute;
-    left: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-
-    svg {
-      width: 1.25rem;
-      height: 1.25rem;
-      fill: ${colors.black};
-      position: absolute;
-      left: 0.5rem;
-
-      transition: 100ms ease;
-    }
-
-    input {
-      padding-left: 2.5rem;
-    }
-  }
 `;
 
 export const TicketSection = styled.div`

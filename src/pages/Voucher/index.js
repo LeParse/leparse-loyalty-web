@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import PinInput from "react-pin-input";
 import { toast } from "react-toastify";
 
@@ -12,8 +12,11 @@ import Button from "../../components/Button";
 
 import LoyaltyImg from "../../assets/images/loyalty-logo-white.png";
 import { ReactComponent as CloseIcon } from "../../assets/svg/close-icon.svg";
+import { ReactComponent as BackIcon } from "../../assets/svg/back-icon.svg";
 
 import colors from "../../global/colors";
+
+import api from "../../services/api";
 
 import {
   Container,
@@ -30,20 +33,32 @@ import {
 function Voucher() {
   const { tickets, socket } = useGlobal();
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const [ticket, setTicket] = useState({});
   const [verifyModal, setVerifyModal] = useState(false);
+  const [voucherObj, setVoucherObj] = useState({});
 
   let voucher = useRef("");
 
-  function confirmModal() {
-    if (!voucher.current || voucher.current.length < 10) {
-      return toast.warn(
-        `Insira o voucher ${voucher.current.length < 10 && "completo"}`
-      );
-    }
+  async function confirmModal() {
+    try {
+      if (!voucher.current || voucher.current.length < 10) {
+        return toast.warn(
+          `Insira o voucher ${voucher.current.length < 10 && "completo"}`
+        );
+      }
 
-    setVerifyModal(true);
+      const { data } = await api.get(
+        `/global/get-voucher?voucher_code=${voucher.current}`
+      );
+
+      setVoucherObj(data?.voucher);
+      console.log(data?.voucher);
+      setVerifyModal(true);
+    } catch (error) {
+      toast.error(error.response.data.message || error.message);
+    }
   }
 
   function applyVoucher() {
@@ -86,6 +101,7 @@ function Voucher() {
   return (
     <AnimatedPage>
       <Container>
+        <BackIcon className="back" onClick={() => navigate(-1)} />
         <Logo src={LoyaltyImg} alt="Leparse Loyalty Logo" />
         <Text>
           Digite abaixo o <BlueColor>código</BlueColor> do seu voucher
@@ -127,6 +143,7 @@ function Voucher() {
           <BottomText>contact@leparse.tech</BottomText>
         </Footer>
         <VersionManager>Leparse Loyalty - v1.0.0</VersionManager>
+
         <Modal
           shouldCloseOnOverlayClick
           to="left"
@@ -140,6 +157,7 @@ function Voucher() {
             position: "absolute",
             right: "2rem",
             overflow: "hidden",
+            padding: "2rem",
           }}
           isOpen={verifyModal}
           setIsOpen={setVerifyModal}
@@ -153,13 +171,38 @@ function Voucher() {
           </div>
           <Spacer />
           <div className="modalFooter">
-            <div className="modalValue">
-              <p>R$</p>
-              <p>{currencyFormat(ticket?.vl_subtotal_itens)}</p>
+            <div className="modalValues">
+              <div className="modalValue">
+                <p>Itens (R$)</p>
+                <p className="discount">- Desconto (R$)</p>
+                <Spacer
+                  style={{
+                    margin: "1rem 0",
+                  }}
+                />
+                <p className="total">Total (R$)</p>
+              </div>
+              <div className="modalValue">
+                <p>{currencyFormat(ticket?.vl_subtotal_itens)}</p>
+                <p className="discount">{currencyFormat(voucherObj?.value)}</p>
+                <Spacer
+                  style={{
+                    margin: "1rem -1rem",
+                  }}
+                />
+                <p className="total">
+                  {currencyFormat(
+                    ticket?.vl_subtotal_itens - voucherObj?.value
+                  )}
+                </p>
+              </div>
             </div>
             <Button
               style={{
-                width: "50%",
+                width: "35%",
+                position: "absolute",
+                right: "2rem",
+                bottom: "2rem",
               }}
               onClick={applyVoucher}
             >

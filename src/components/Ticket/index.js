@@ -10,8 +10,13 @@ function Ticket({ ticket }) {
     navigate(`/voucher?ticket_id=${ticket?.venda_id}`);
   }
 
+  if (ticket.ticket === "mesa 54") {
+    console.log(ticket);
+  }
+
   return (
     <m.div
+      layout
       initial={{
         y: "2.5rem",
         opacity: 0,
@@ -27,6 +32,9 @@ function Ticket({ ticket }) {
       transition={{
         type: "spring",
         mass: 0.4,
+        layout: {
+          duration: 0.2,
+        },
       }}
     >
       <Container onClick={onClick}>

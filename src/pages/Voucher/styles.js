@@ -9,6 +9,25 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 2rem;
+    height: 2rem;
+    fill: ${colors.white};
+    cursor: pointer;
+
+    padding: 2rem;
+
+    transition: 100ms ease;
+
+    &:hover {
+      transform: scale(1.05) translateX(-0.25rem);
+    }
+  }
+
   .modalHeader {
     display: flex;
     align-items: center;
@@ -49,20 +68,29 @@ export const Container = styled.div`
       color: ${colors.black};
     }
 
-    p:nth-child(1) {
+    .total {
       font-weight: 700;
+      font-size: 1.25rem;
     }
+  }
 
-    p:nth-child(2) {
-    }
+  .modalValues {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 
   .modalValue {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1rem;
+
+    .discount {
+      color: ${colors.red};
+    }
   }
 `;
 

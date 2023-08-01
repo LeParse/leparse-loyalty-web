@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { m } from "framer-motion";
 
 import colors from "../../global/colors";
 

@@ -70,27 +70,47 @@ const GlobalProvider = ({ children }) => {
     });
 
     socket.on("success", (success) => {
+      let toastMessage = success.message || "Sucesso!";
+      let toastType;
+
       switch (success.type) {
         case "voucher_applied":
-          toast.success("Voucher aplicado!");
-          return navigate("/tickets");
+          toastType = "success";
+          navigate("/tickets");
+          break;
         default:
-          return toast.success("Sucesso!");
+          toastType = "success";
+          break;
       }
+
+      toast(toastMessage, {
+        type: toastType,
+      });
     });
 
     socket.on("error", (error) => {
+      let toastMessage =
+        error.message || "Erro desconhecido! Contate um administrador.";
+      let toastType;
+
       switch (error.type) {
         case "voucher_not_found":
-          toast.error(`Voucher não encontrado!`);
+          toastType = "error";
           break;
         case "invalid_character_in_voucher":
-          toast.error("Voucher inválido!");
+          toastType = "warn";
+          break;
+        case "voucher_not_active":
+          toastType = "warning";
           break;
         default:
-          toast.error("Erro na loja! Contate um administrador");
+          toastType = "error";
           break;
       }
+
+      toast(toastMessage, {
+        type: toastType,
+      });
     });
   }
 

@@ -2380,9 +2380,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@leparse/ui@npm:^0.1.23":
-  version: 0.1.23
-  resolution: "@leparse/ui@npm:0.1.23::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40leparse%2Fui%2F0.1.23%2F47edccf842337d6a6d8501c2c4cc33defbc2acd7"
+"@leparse/ui@npm:^0.1.24":
+  version: 0.1.24
+  resolution: "@leparse/ui@npm:0.1.24::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40leparse%2Fui%2F0.1.24%2Ff22953da183b392d7d60d1db3e3b546b07e8c695"
   dependencies:
     framer-motion: ^10.16.4
     moment: ^2.29.4
@@ -2396,7 +2396,7 @@ __metadata:
     react-wavify: ^1.9.0
     styled-components: ^6.0.7
     web-vitals: ^2.1.4
-  checksum: 9089a10e429276a2dfe685877b8d4bf411b3bd309b0432ab5cf3ca87ea2cb9515682958b39ea6b8c180365847c3b0fb55edc3023b452984e8a0a0d1cf1c11416
+  checksum: 54bd06d268c355c7a0884ac6d8c22529358e8ebb9b392fb4129d2a4fb445a025588f157c4ccf3e6f9afc2f13b8acfcb1082f350abe8698f621afb8ae6519169e
   languageName: node
   linkType: hard
 
@@ -9039,7 +9039,7 @@ __metadata:
   resolution: "leparse-loyalty-web@workspace:."
   dependencies:
     "@babel/plugin-proposal-private-property-in-object": ^7.21.11
-    "@leparse/ui": ^0.1.23
+    "@leparse/ui": ^0.1.24
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/user-event": ^13.5.0

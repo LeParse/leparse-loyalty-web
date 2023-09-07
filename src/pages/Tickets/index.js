@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { AnimatePresence, m } from "framer-motion";
+import React, { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import { useDebounce } from "../../utils/debounce.utils";
 
 import { useGlobal } from "../../contexts/global";
 
+import { SearchBar, AnimatedPage, Spacer } from "@leparse/ui";
+
 import Header from "../../components/Header";
 import Ticket from "../../components/Ticket";
 import Block from "../../components/Block";
-import Spacer from "../../components/Spacer";
 import NoContent from "../../components/NoContent";
-import AnimatedPage from "../../components/AnimatedPage";
-import SearchBar from "../../components/SearchBar";
 
 import { Container, Title, TicketHeader } from "./styles";
 

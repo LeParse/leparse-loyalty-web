@@ -9,7 +9,7 @@ function App() {
       <Router />
       <ToastContainer
         position="bottom-center"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -18,7 +18,7 @@ function App() {
         draggable
         pauseOnHover
         theme="colored"
-        limit={1}
+        limit={3}
       />
     </>
   );

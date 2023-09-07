@@ -2,12 +2,9 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-import { useGlobal } from "../../contexts/global";
-import AnimatedPage from "../../components/AnimatedPage";
+import { AnimatedPage, Spacer, Select, Button } from "@leparse/ui";
+
 import Block from "../../components/Block";
-import Spacer from "../../components/Spacer";
-import Select from "../../components/Select";
-import Button from "../../components/Button";
 
 import api from "../../services/api";
 

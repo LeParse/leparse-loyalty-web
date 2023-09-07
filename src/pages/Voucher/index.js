@@ -5,10 +5,7 @@ import { toast } from "react-toastify";
 
 import { useGlobal } from "../../contexts/global";
 
-import AnimatedPage from "../../components/AnimatedPage";
-import Modal from "../../components/Modal";
-import Spacer from "../../components/Spacer";
-import Button from "../../components/Button";
+import { AnimatedPage, Modal, Spacer, Button } from "@leparse/ui";
 
 import LoyaltyImg from "../../assets/images/loyalty-logo-white.png";
 import { ReactComponent as CloseIcon } from "../../assets/svg/close-icon.svg";
@@ -128,8 +125,9 @@ function Voucher() {
             backgroundColor: "rgba(255,255,255,0.25)",
             backdropFilter: "blur(1rem)",
             color: colors.white,
-            width: "3rem",
-            height: "3rem",
+            width: "6rem",
+            height: "6rem",
+            margin: "0.25rem",
           }}
           inputFocusStyle={{
             backgroundColor: "rgba(207, 237, 248, 0.75)",

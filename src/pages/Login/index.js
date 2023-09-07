@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useGlobal } from "../../contexts/global";
 
-import Button from "../../components/Button";
+import { Button } from "@leparse/ui";
 
 import loyaltyLogo from "../../assets/images/loyalty-logo.png";
 
